@@ -1,0 +1,104 @@
+body{
+    background-color:#333333 !important;
+}
+
+.title{
+    color:#ffffff;
+}
+
+.text{
+    font-size:18px;
+}
+
+.done-true {
+    text-decoration: line-through;
+    color: grey;
+}
+        
+input:required {
+    box-shadow: none;
+}
+
+.form-group{
+    margin-top:20px;
+}
+
+.dr{
+    margin-top:20px;
+    margin-bottom:20px;
+}
+
+textarea{
+    resize:none;
+}
+
+.save, .cancel{
+    margin-top:5px;
+}
+
+.incompleted{
+    height:50px;
+    background-color:#0089ff; 
+    font-size:25px;
+    text-align:center;
+    border-radius:5px;
+    color:#000000;
+    padding-top:5px;
+    margin-bottom:10px;
+}
+
+@media only screen and (min-width:1200px){
+.table-auto{
+    width:65% !important;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #ffffff;
+}
+
+.row{
+    width:65%;
+    margin:0px auto !important;
+}
+}
+
+@media only screen and (min-width:992px) and (max-width:1199px){
+.table-auto{
+    width:70% !important;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #ffffff;
+}
+    
+.row{
+   width:70%;
+   margin:0px auto !important;
+}
+}
+
+@media only screen and (min-width:768px) and (max-width:991px){
+.table-auto{
+    width:80% !important;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #ffffff;
+}
+    
+.row{
+   width:80%;
+   margin:0px auto !important;
+}
+}
+
+@media only screen and (max-width:767px){
+.table-auto{
+    width:95% !important;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #ffffff;
+}
+    
+.row{
+   width:95%;
+   margin:0px auto !important;
+}
+}

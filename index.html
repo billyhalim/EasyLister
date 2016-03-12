@@ -1,0 +1,65 @@
+<!doctype html>
+<html data-ng-app="todoApp">
+
+<head>
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+</head> 
+<body>
+    <div ng-controller="TodoListController" class="container">
+        
+        <h1 class="text-center title">{{title}}</h1>
+        <form ng-submit="addTodo()" role="form">
+            <div class="form-group">
+                <div class="col-xs-8 col-xs-offset-1 col-sm-9 col-sm-offset-1 col-md-7 col-md-offset-2 col-lg-7 col-lg-offset-2">
+                    <input type="text" class="form-control input-lg" ng-model="todoText" size="30" placeholder="Write A New Task" required>
+                </div>
+                    <input class="btn btn-success btn-lg" type="submit" value="Add"> 
+            </div>    
+        </form>
+        
+    <div class="text-center dr">    
+        <button class="btn btn-warning btn-lg" type="button" ng-click="delete()">Delete Checked</button>
+        <button class="btn btn-default btn-lg" type="button" ng-click="reset()">Reset</button>
+    </div>
+    
+    <table class="table table-bordered table-hover table-auto">
+            <tr ng-repeat="todo in todos track by $index" ng-include="getTemplate(todo)">
+                <tbody>
+                
+                </tbody>
+            </tr>  
+    </table> 
+
+    <script type="text/ng-template" id="display">
+           <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button type="button" class="btn btn-danger btn-md" ng-click="remove()">&#10008;</button></td> 
+           <td><input type="checkbox" ng-model="todo.done"></td> 
+           <td class="col-xs-10 col-sm-10 col-md-10 col-lg-10"><span class="done-{{todo.done}} text">{{todo.text}}</span></td> 
+           <td class="col-xs-1 col-sm-1 col-md-1 col-lg-1"><button type="submit" class="btn btn-primary btn-md" ng-click="change(todo)">Edit</button></td> 
+    </script>
+
+    <div class="row">    
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 incompleted">{{remaining()}}
+        <ng-pluralize count="remaining()" when="{ one: 'item left', other: 'items left' }">     </ng-pluralize>
+        </div>
+        <div class="well col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center"><h3 class="createdby">{{createdby}}</h3><br><h4>Feel Free to play with the code for practicing ! Good Luck !</h4></div>
+    </div>    
+        
+        <script type="text/ng-template" id="edit">
+            <td class="col-lg-1"><button type="button" class="btn btn-danger btn-md" ng-click="remove()">&#10008;</button></td>
+            <td><input type="checkbox" ng-model="todo.done"></td>
+            <td class="col-lg-9">
+              <form ng-submit="save($index)">
+                <input class="form-control input-lg" ng-model="selected.text" on-esc="cancel()" todo-focus="todo" rows="2">
+            </td>
+            <td class="col-lg-1"><input type="submit" class="btn btn-info btn-md save" ng-click="save($index)" value="Save"></td>
+            <td class="col-lg-1"><input type="button" class="btn btn-warning btn-md cancel" ng-click="cancel()" value="Cancel"></form></td>
+        </script>
+    
+    </div>                      
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/controller.js"></script>
+    </body>
+</html>
